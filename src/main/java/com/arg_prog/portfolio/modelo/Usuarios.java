@@ -15,14 +15,16 @@ public class Usuarios {
     @Basic
     String email;
     String password;
+    private boolean isEnabled;
 
     public Usuarios() {
     }
 
-    public Usuarios(Long id, String email, String password) {
+    public Usuarios(Long id, String email, String password, boolean isEnabled) {
         this.id = id;
         this.email = email;
         this.password = password;
+        this.isEnabled= isEnabled;
     }
 
     public Long getId() {
@@ -49,9 +51,19 @@ public class Usuarios {
         this.password = password;
     }
 
+    
+    public boolean isEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled(boolean isEnabled) {
+        this.isEnabled = isEnabled;
+    }
+
     @Override
     public String toString() {
-        return "Usuarios [email=" + email + ", id=" + id + ", password=" + password + "]";
+        return "Usuarios [email=" + email + ", id=" + id + ", isEnabled=" + isEnabled + ", password=" + password + "]";
     }
+       
 
 }
