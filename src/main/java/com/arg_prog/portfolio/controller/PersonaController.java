@@ -20,10 +20,6 @@ public class PersonaController {
     @Autowired
     PersonaService personaServicio;
 
-    @GetMapping("/saludar")
-    public String saludar() {
-        return "hola";
-    }
 
     @GetMapping("/persona")
     @ResponseBody

@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * IPersonaRepositorio
+ * IPersonaRepositorio, le paso la entidad y el tipo de dato del id
  */
 
 @Repository
