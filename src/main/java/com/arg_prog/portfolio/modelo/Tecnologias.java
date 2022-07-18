@@ -15,14 +15,16 @@ public class Tecnologias {
     @Basic
     String name;
     String progress;
+    String urlLogos;
     
     public Tecnologias() {
     }
 
-    public Tecnologias(Long id, String name, String progress) {
+    public Tecnologias(Long id, String name, String progress, String urlLogos) {
         this.id = id;
         this.name = name;
         this.progress = progress;
+        this.urlLogos = urlLogos;
     }
 
     public Long getId() {
@@ -48,11 +50,20 @@ public class Tecnologias {
     public void setProgress(String progress) {
         this.progress = progress;
     }
+    
+    public String getUrlLogos() {
+        return urlLogos;
+    }
+
+    public void setUrlLogos(String urlLogos) {
+        this.urlLogos = urlLogos;
+    }
 
     @Override
     public String toString() {
-        return "Tecnologias [id=" + id + ", name=" + name + ", progress=" + progress + "]";
+        return "Tecnologias [id=" + id + ", name=" + name + ", progress=" + progress 
+        + ", urlLogos=" + urlLogos + "]";
     }
     
-    
+
 }
