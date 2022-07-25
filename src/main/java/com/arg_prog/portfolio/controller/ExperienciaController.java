@@ -6,6 +6,7 @@ import com.arg_prog.portfolio.modelo.Experiencia;
 import com.arg_prog.portfolio.service.ExperienciaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200/"})
+@CrossOrigin(origins = "*")
 public class ExperienciaController {
 
     @Autowired
@@ -30,12 +31,14 @@ public class ExperienciaController {
         return experienciaServicio.listarExperiencia();        
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/experiencia")
     @ResponseBody
     public Experiencia crearExperiencia(@RequestBody Experiencia experiencia) {
         return experienciaServicio.crearExperiencia(experiencia);        
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/experiencia/{id}")
     public void borrarExperiencia(@PathVariable Long id){
         experienciaServicio.borrarExperiencia(id);
@@ -47,6 +50,7 @@ public class ExperienciaController {
         return experienciaServicio.buscarExperienciaPorId(id);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/experiencia")
     public void modificarExperiencia(@RequestBody Experiencia experiencia){
         experienciaServicio.modificarExperiencia(experiencia);

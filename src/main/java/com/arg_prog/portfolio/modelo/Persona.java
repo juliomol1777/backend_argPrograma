@@ -21,6 +21,8 @@ public class Persona {
     String image;
     String image_background;
     String email;
+    String urlIn;
+    String urlGithub;
 
 
     public Persona() {
@@ -28,7 +30,7 @@ public class Persona {
 
 
     public Persona(Long id, String fullname, String position, String ubication, String about, String image,
-            String image_background, String email) {
+            String image_background, String email, String urlIn, String urlGithub) {
         this.id = id;
         this.fullname = fullname;
         this.position = position;
@@ -37,6 +39,8 @@ public class Persona {
         this.image = image;
         this.image_background = image_background;
         this.email = email;
+        this.urlIn = urlIn;
+        this.urlGithub = urlGithub;
     }
 
 
@@ -120,11 +124,30 @@ public class Persona {
     }
 
 
+    public String getUrlIn() {
+        return urlIn;
+    }
+
+
+    public void setUrlIn(String urlIn) {
+        this.urlIn = urlIn;
+    }
+
+    public String getUrlGithub() {
+        return urlGithub;
+    }
+
+
+    public void setUrlGithub(String urlGithub) {
+        this.urlGithub = urlGithub;
+    }
+
+
     @Override
     public String toString() {
         return "Persona [about=" + about + ", email=" + email + ", fullname=" + fullname + ", id=" + id + ", image="
                 + image + ", image_background=" + image_background + ", position=" + position + ", ubication="
-                + ubication + "]";
+                + ubication + ", urlGithub=" + urlGithub + ", urlIn=" + urlIn + "]";
     }
        
 }

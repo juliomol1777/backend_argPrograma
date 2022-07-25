@@ -6,6 +6,7 @@ import com.arg_prog.portfolio.modelo.Proyectos;
 import com.arg_prog.portfolio.service.ProyectosService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200/"})
+@CrossOrigin(origins = "*")
 public class ProyectosController {
 
     @Autowired
@@ -30,12 +31,14 @@ public class ProyectosController {
         return proyectosServicio.listarProyectos();        
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/proyectos")
     @ResponseBody
     public Proyectos crearProyectos(@RequestBody Proyectos proyectos) {
         return proyectosServicio.crearProyectos(proyectos);        
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/proyectos/{id}")
     public void borrarProyectos(@PathVariable Long id){
         proyectosServicio.borrarProyectos(id);
@@ -47,6 +50,7 @@ public class ProyectosController {
         return proyectosServicio.buscarProyectosPorId(id);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/proyectos")
     public void modificarProyectos(@RequestBody Proyectos proyectos){
         proyectosServicio.modificarProyectos(proyectos);

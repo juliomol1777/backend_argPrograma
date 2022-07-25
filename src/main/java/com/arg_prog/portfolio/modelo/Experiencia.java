@@ -20,12 +20,13 @@ public class Experiencia {
     String time;
     String mode;
     String place;
+    String image;
     
     public Experiencia() {
     }
 
     public Experiencia(Long id, String position, String company, String start, String end, String time, String mode,
-            String place) {
+            String place, String image) {
         this.id = id;
         this.position = position;
         this.company = company;
@@ -34,6 +35,7 @@ public class Experiencia {
         this.time = time;
         this.mode = mode;
         this.place = place;
+        this.image = image;
     }
 
     public Long getId() {
@@ -100,10 +102,18 @@ public class Experiencia {
         this.place = place;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
-        return "Experiencia [company=" + company + ", end=" + end + ", id=" + id + ", mode=" + mode + ", place=" + place
-                + ", position=" + position + ", start=" + start + ", time=" + time + "]";
+        return "Experiencia [company=" + company + ", end=" + end + ", id=" + id + ", image=" + image + ", mode=" + mode
+                + ", place=" + place + ", position=" + position + ", start=" + start + ", time=" + time + "]";
     }
-    
+
 }

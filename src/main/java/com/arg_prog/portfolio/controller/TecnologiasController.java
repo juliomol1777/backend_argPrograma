@@ -6,6 +6,7 @@ import com.arg_prog.portfolio.modelo.Tecnologias;
 import com.arg_prog.portfolio.service.TecnologiasService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200/"})
+@CrossOrigin(origins = "*")
 public class TecnologiasController {
 
     @Autowired
@@ -30,12 +31,14 @@ public class TecnologiasController {
         return tecnologiasServicio.listarTecnologias();        
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/tecnologias")
     @ResponseBody
     public Tecnologias crearTecnologias(@RequestBody Tecnologias tecnologias) {
         return tecnologiasServicio.crearTecnologias(tecnologias);        
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/tecnologias/{id}")
     public void borrarTecnologias(@PathVariable Long id){
         tecnologiasServicio.borrarTecnologias(id);
@@ -47,6 +50,7 @@ public class TecnologiasController {
         return tecnologiasServicio.buscarTecnologiasPorId(id);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/tecnologias")
     public void modificarTecnologias(@RequestBody Tecnologias tecnologias){
         tecnologiasServicio.modificarTecnologias(tecnologias);
