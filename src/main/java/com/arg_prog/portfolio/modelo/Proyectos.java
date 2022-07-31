@@ -15,14 +15,16 @@ public class Proyectos {
     @Basic
     String name;
     String info;
+    String image;
     
     public Proyectos() {
     }
 
-    public Proyectos(Long id, String name, String info) {
+    public Proyectos(Long id, String name, String info, String image) {
         this.id = id;
         this.name = name;
         this.info = info;
+        this.image = image;
     }
 
     public Long getId() {
@@ -49,9 +51,17 @@ public class Proyectos {
         this.info = info;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
-        return "Proyectos [id=" + id + ", info=" + info + ", name=" + name + "]";
+        return "Proyectos [id=" + id + ", image=" + image + ", info=" + info + ", name=" + name + "]";
     }
     
     
